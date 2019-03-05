@@ -1,4 +1,4 @@
-# QueryingDatawithTSQL  
+# Querying Data with TSQL  
 Sample scripts for each lectures of the edx course Microsoft: DAT201x - Querying Data with Transact-SQL  
 https://www.edx.org/course/querying-data-with-transact-sql-0  
 
