@@ -75,3 +75,39 @@ Begin
 End
 
 /* Looping  - While, End, Break and Continue*/
+/*
+Declare @Counter int =1
+while @counter <=5
+begin
+	Insert SalesLT.DemoTable(Description)
+	Values('Row'+Convert(varchar(5), @counter))
+	Set @counter += 1
+End
+Select * from SalesLt.DemoTable
+*/
+
+-- the above operation is row based operation and not set based
+
+-- Stored Procedures
+/* Database objects that encapsulate TSQL code
+These can be parameterized and are executed with execute command */
+
+Create Procedure SalesLT.GetProductByCategory (@CategoryID Int = NUll)
+as If @CategoryID Is null
+	Select ProductID, Name, Color, Size, ListPrice from salesLT.Product
+else
+	Select ProductID, Name, Color, Size, ListPrice
+	From SalesLT.Product
+	Where ProductCategoryID = @CategoryID
+
+Exec SalesLT.GetProductByCategory
+-- exec is not required if it is the first line of code
+
+Exec SalesLT.GetProductByCategory 6
+
+/*
+The function must return a value but in Stored Procedure it is optional. Even a procedure can return zero or n values. Functions can have only input parameters for it whereas Procedures can have input or output parameters. Functions can be called from Procedure whereas Procedures cannot be called from a Function.
+
+Source - Google - DotNetTRicks 
+
+*/
